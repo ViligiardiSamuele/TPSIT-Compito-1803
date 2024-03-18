@@ -1,4 +1,5 @@
 <?php
+
 use Psr\Http\Message\ResponseInterface as Response;
 use Psr\Http\Message\ServerRequestInterface as Request;
 use Slim\Factory\AppFactory;
@@ -9,7 +10,8 @@ $app = AppFactory::create();
 
 $app->addRoutingMiddleware();
 
-function autoloader($class_name) {
+function autoloader($class_name)
+{
     $directories = ['', '/controllers', '/views', '/templates', '/src'];
     foreach ($directories as $dir) {
         $file = __DIR__ . $dir . '/' . $class_name . '.php';

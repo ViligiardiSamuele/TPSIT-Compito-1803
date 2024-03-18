@@ -21,7 +21,7 @@ class Negozio implements JsonSerializable
             new OrdineFisico(
                 1,
                 '01/01/1970',
-                (5+7),
+                (5 + 7),
                 [
                     new ArticoloVenduto(1, 5, 2),
                     new ArticoloVenduto(2, 7, 1),

@@ -11,7 +11,7 @@ class OrdiniController
         $negozio = new Negozio();
 
         $ordini = $negozio->getOrdini();
-        if(is_null($ordini)){
+        if (is_null($ordini)) {
             $response->getBody()->write(json_encode(['StatusCode' => 404, 'Error' => 'Risorsa inesistente'], JSON_PRETTY_PRINT));
             return $response->withStatus(404)->withHeader('Content-Type', 'application/json');
         }
@@ -25,7 +25,7 @@ class OrdiniController
         $negozio = new Negozio();
 
         $ordine = $negozio->getOrdine($args['numero_ordine']);
-        if(is_null($ordine)){
+        if (is_null($ordine)) {
             $response->getBody()->write(json_encode(['StatusCode' => 404, 'Error' => 'Risorsa inesistente'], JSON_PRETTY_PRINT));
             return $response->withStatus(404)->withHeader('Content-Type', 'application/json');
         }
@@ -39,13 +39,13 @@ class OrdiniController
         $negozio = new Negozio();
 
         $articoli_venduti = $negozio->getOrdine($args['numero_ordine']);
-        if(is_null($articoli_venduti)){
+        if (is_null($articoli_venduti)) {
             $response->getBody()->write(json_encode(['StatusCode' => 404, 'Error' => 'Risorsa inesistente'], JSON_PRETTY_PRINT));
             return $response->withStatus(404)->withHeader('Content-Type', 'application/json');
         }
 
         $articoli_venduti = $articoli_venduti->getArticoli_venduti();
-        if(is_null($articoli_venduti)){
+        if (is_null($articoli_venduti)) {
             $response->getBody()->write(json_encode(['StatusCode' => 404, 'Error' => 'Risorsa inesistente'], JSON_PRETTY_PRINT));
             return $response->withStatus(404)->withHeader('Content-Type', 'application/json');
         }
@@ -59,7 +59,7 @@ class OrdiniController
         $negozio = new Negozio();
 
         $articolo_venduto = $negozio->getOrdine($args['numero_ordine']);
-        if(is_null($articolo_venduto)){
+        if (is_null($articolo_venduto)) {
             $response->getBody()->write(json_encode(['StatusCode' => 404, 'Error' => 'Risorsa inesistente'], JSON_PRETTY_PRINT));
             return $response->withStatus(404)->withHeader('Content-Type', 'application/json');
         }
@@ -76,11 +76,11 @@ class OrdiniController
         $negozio = new Negozio();
 
         $verifica = $negozio->verifica($args['numero_ordine']);
-        if(is_null($verifica)){
+        if (is_null($verifica)) {
             $response->getBody()->write(json_encode(['StatusCode' => 404, 'Error' => 'Risorsa inesistente'], JSON_PRETTY_PRINT));
             return $response->withStatus(404)->withHeader('Content-Type', 'application/json');
         }
-        
+
         $response->getBody()->write(json_encode($verifica, JSON_PRETTY_PRINT));
         return $response->withStatus(200)->withHeader('Content-Type', 'application/json');
     }
@@ -89,7 +89,7 @@ class OrdiniController
     {
         $negozio = new Negozio();
         $sconto = $negozio->sconto($args['numero_ordine']);
-        if(is_null($sconto)){
+        if (is_null($sconto)) {
             $response->getBody()->write(json_encode(['StatusCode' => 404, 'Error' => 'Risorsa inesistente'], JSON_PRETTY_PRINT));
             return $response->withStatus(404)->withHeader('Content-Type', 'application/json');
         }
